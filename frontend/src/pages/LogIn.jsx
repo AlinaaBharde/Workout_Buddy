@@ -8,13 +8,14 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     await login(email, password);
-    // console.log(email, password);
   };
+
   return (
-    <form className="login" onSubmit={handleSubmit}>
-      <h3>Login </h3>
+    <form className="form" onSubmit={handleSubmit}>
+      <div className="title">
+        Login <span>Enter your credentials</span>
+      </div>
       <label>Email:</label>
       <input
         type="email"
@@ -23,6 +24,7 @@ const Login = () => {
         name="email"
         placeholder="abc@gmail.com"
         required
+        className="input"
       />
       <label>Password:</label>
       <input
@@ -32,8 +34,12 @@ const Login = () => {
         name="password"
         placeholder="password"
         required
+        className="input"
       />
-      <button disabled={isLoading}>Log In</button>
+      <button className="button-confirm"  style={{ backgroundColor: '#A77BCA', color: '#fff' }}
+      disabled={isLoading}>
+        Log In
+      </button>
       {error && <div className="error">{error}</div>}
     </form>
   );

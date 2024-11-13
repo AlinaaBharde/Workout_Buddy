@@ -8,12 +8,14 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     await signup(email, password);
   };
+
   return (
-    <form className="signup" onSubmit={handleSubmit}>
-      <h3>Sign Up </h3>
+    <form className="form" onSubmit={handleSubmit}>
+      <div className="title">
+        Welcome, <span>sign up to continue</span>
+      </div>
       <label>Email:</label>
       <input
         type="email"
@@ -22,6 +24,7 @@ const SignUp = () => {
         name="email"
         placeholder="abc@gmail.com"
         required
+        className="input"
       />
       <label>Password:</label>
       <input
@@ -31,8 +34,10 @@ const SignUp = () => {
         name="password"
         placeholder="password"
         required
+        className="input"
       />
-      <button type="submit" disabled={isLoading}>
+      <button className="button-confirm" 
+      style={{ backgroundColor: '#77dd77', color: '#fff' }}disabled={isLoading}>
         Sign Up
       </button>
       {error && <div className="error">{error}</div>}
